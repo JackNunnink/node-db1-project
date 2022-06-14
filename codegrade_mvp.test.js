@@ -52,7 +52,7 @@ describe('server.js', () => {
       let accs = await db('accounts')
       expect(accs).toHaveLength(accounts.length + 1)
       expect(accs[accounts.length]).toMatchObject({ name: 'foo', budget: 1000 })
-    }, 750)
+    })
     test('[7] responds with a 201 and the newly created account', async () => {
       const res = await request(server).post('/api/accounts').send({ name: 'foo', budget: 1000 })
       expect(res.status).toBe(201)
